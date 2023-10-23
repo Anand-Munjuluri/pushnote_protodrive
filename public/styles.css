@@ -131,6 +131,12 @@ input:-webkit-autofill:focus {
     display: flex;
     align-items: center;
     gap:10px;
+    font-size:18px;
+}
+
+.profile > .functions{
+    display: flex;
+    gap:15px;
 }
 
 .profile img{
@@ -140,7 +146,7 @@ input:-webkit-autofill:focus {
 .task-board{
     background-color: #fe7265;
     height: 80vh;
-    width:50%;
+    width:60%;
     margin:auto;
     border-radius: 10px;
     position: relative;
@@ -162,6 +168,7 @@ input:-webkit-autofill:focus {
     position: absolute;
     top:20px;
     right:4%;
+    cursor: pointer;
 }
 
 .task{
@@ -175,4 +182,37 @@ input:-webkit-autofill:focus {
     justify-content: space-between;
 
     cursor: pointer;
+}
+
+/*Add Manager*/
+
+.add-manager-form{
+    display: flex;
+    flex-direction: column;
+    height:100%;
+    width:90%;
+    justify-content: center;
+}
+
+.add-manager-form > input{
+    margin-block:10px;
+    height:40px;
+    border:none;
+    border-radius: 5px;
+    padding-inline:10px;
+}
+
+.add-manager-form > button{
+    height:40px;
+    color:white;
+    border: none;
+    background-color: #4446E9;
+    border-radius: 5px;
+    margin-block:15px;
+    text-transform: uppercase;
+}
+
+.no-managers{
+    color:white;
+    font-size:25px;
 }

@@ -1,15 +1,54 @@
 /* importing react necessary components */
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 /* importing images */
 import profilePhoto from '../Assets/profile.png'
 import chat from '../Assets/chat.png'
 import bell from '../Assets/bell.png'
 
-/* importing icons */
-import {IoAddCircle} from 'react-icons/io5'
+/* importing components */
+import TaskBoard from '../components/TaskBoard'
+import AddManager from '../components/AddManager'
+
+/* importing firebase components */
+import {db} from '../Firebase'
+import { collection, getDocs, updateDoc } from 'firebase/firestore';
 
 export default function AdminDashBoard() {
+
+  const [managers, setManagers] = useState([]);
+  const [activeTab, setActiveTab] = useState('task-board');
+  useEffect(() => {
+    const addTaskField = async () => {
+      const managersRef = collection(db, 'managers');
+      const snapshot = await getDocs(managersRef);
+      snapshot.forEach(async (doc) => {
+        if (!doc.data().tasks) {
+          await updateDoc(doc.ref, { tasks: [] });
+        }
+      });
+    };
+
+    const getManagersData = async () => {
+
+      const managerCollectionRef = collection(db, "managers")
+      const data = await getDocs(managerCollectionRef);
+
+      setManagers(data.docs.map((doc) => {
+        return {...doc.data()}
+      }
+      ))
+    }
+
+    addTaskField();
+    getManagersData();
+  }, []);
+
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
+    console.log(tab);
+  }
+
   return (
     <div className='admin'>
       <div className="profile">
@@ -25,46 +64,8 @@ export default function AdminDashBoard() {
       </div>
 
       <div className="task-board">
-        <div class = "header">
-          <p>Task Board</p>
-          <IoAddCircle className='add-icon'/>
-        </div>
-
-        <div className= 'task'>
-          <span>Manager 1</span>
-          <span>3/5</span>
-        </div>
-
-        <div className= 'task'>
-          <span>Manager 2</span>
-          <span>2/5</span>
-        </div>
-
-        <div className= 'task'>
-          <span>Manager 3</span>
-          <span>1/5</span>
-        </div>
-
-        <div className= 'task'>
-          <span>Manager 4</span>
-          <span>0/5</span>
-        </div>
-
-        <div className= 'task'>
-          <span>Manager 5</span>
-          <span>0/5</span>
-        </div>
-
-        <div className='task'>
-          <span>Manager 6</span>
-          <span>0/5</span>
-        </div>
-
-        <div className='task'>
-          <span>Manager 7</span>
-          <span>0/5</span>
-        </div>
-
+        {activeTab === 'task-board' && <TaskBoard changeTab = {(tab) => handleTabChange(tab)} managers={managers} />}
+        {activeTab === 'add-manager' && <AddManager changeTab = {(tab) => handleTabChange(tab)} managers={managers}/>}
       </div>
 
     </div>

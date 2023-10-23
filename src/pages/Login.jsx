@@ -26,7 +26,7 @@ export default function Login() {
   })
   const [admins, setAdmins] = useState([]);
   const [managers, setManagers] = useState([]);
-    const [employees, setEmployees] = useState([]);
+  const [employees, setEmployees] = useState([]);
 
   const navigate = useNavigate()
 
