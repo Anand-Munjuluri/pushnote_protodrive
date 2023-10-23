@@ -12,17 +12,15 @@ import { auth } from '../Firebase';
 import {db} from '../Firebase'
 import { collection, getDocs } from "firebase/firestore";
 import {
-    createUserWithEmailAndPassword,
-    updateProfile,
     signInWithEmailAndPassword,
-    sendPasswordResetEmail,
-    getAuth
 } from 'firebase/auth';
+
+/**importing Toaster */
 import { toast } from 'react-toastify';
 
 export default function Login() {
 
-  const [form, setForm] = React.useState({
+  const [form, setForm] = useState({
     email: '',
     password: ''
   })
@@ -78,7 +76,7 @@ export default function Login() {
 
   function handleSubmit(e) {
     e.preventDefault()
-    
+
     // if the user is admin
     if(isAdmin(form.email)){
         signInWithEmailAndPassword(auth, form.email, form.password)

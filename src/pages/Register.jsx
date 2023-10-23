@@ -1,6 +1,13 @@
+/* importing React components */
 import React, { useEffect, useState } from 'react'
+
+/**Importing Images */
 import VectorImage from '../Assets/home_vector.png';
+
+/**importing Router Components */
 import { useNavigate } from 'react-router';
+
+/**importing Firebase components */
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { auth } from '../Firebase';
 import {db} from '../Firebase'
@@ -9,7 +16,7 @@ import { toast } from 'react-toastify';
 
 export default function Register() {
 
-  const [form, setForm] = React.useState({
+  const [form, setForm] = useState({
     name: '',
     email: '',
     password: ''

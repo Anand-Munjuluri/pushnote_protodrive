@@ -1,13 +1,22 @@
-import React from 'react'
+/* importing react necessary components */
+import React, { useState } from 'react'
+
+/* importing images */
 import VectorImage from '../Assets/home_vector.png';
+
+/*importing Router components */
 import { useNavigate } from 'react-router';
+
+/**importing Toaster */
 import { toast } from 'react-toastify';
+
+/*importign firebase components */
 import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
 
 
 export default function ForgotPassword() {
 
-  const [form, setForm] = React.useState({
+  const [form, setForm] = useState({
     email: '',
   })
   
