@@ -81,12 +81,17 @@
 
 
     /*Admin page*/
+
+    .admin{
+        height: 100%;
+    }
+
     .profile{
         display: flex;
         justify-content: space-between;
         align-items:center;
 
-        padding:12px;
+        padding: 40px 20px 30px;
     }
 
     .profile > .details{
@@ -97,5 +102,45 @@
 
     .profile img{
         height:30px;
+    }
+
+    .task-board{
+        background-color: #fe7265;
+        height: 80vh;
+        width:90%;
+        margin:auto;
+        border-radius: 10px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding:15px;
+
+        overflow:auto;
+    }
+
+    .task-board .header{
+        color:white;
+        font-size:30px;
+        padding-bottom:15px;
+    }
+    
+    .add-icon{
+        position: absolute;
+        top:20px;
+        right:4%;
+    }
+
+    .task{
+        background-color: white;
+        width:95%;
+        margin-block:13px;
+        padding:10px 20px;
+        border-radius:8px;
+        
+        display: flex;
+        justify-content: space-between;
+
+        cursor: pointer;
     }
 }
