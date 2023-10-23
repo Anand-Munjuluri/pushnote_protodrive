@@ -1,21 +1,48 @@
+/* importing react necessary components */
 import React from 'react'
-import {BrowserRouter, Routes, Route, Switch} from 'react-router-dom'
+
+/*importing Router components*/
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+
+/*importing pages*/
 import Login from './pages/Login'
+import Register from './pages/Register'
+import ForgotPassword from './pages/ForgotPassword'
 import AdminDashBoard from './pages/AdminDashBoard'
+
+/*importing toaster components*/ 
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 export default function App() {
   return (
-    <>
+    <div className = "App">
 
       <BrowserRouter>
         <Routes>
           
           <Route path="/" element={<Login />} />
-          <Route path="/admin" element={<AdminDashBoard/>}/>
+          <Route path="/register" element={<Register />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/admin-dashboard" element={<AdminDashBoard/>}/>
 
         </Routes>
       </BrowserRouter>
 
-    </>
+
+      <ToastContainer
+        position="bottom-center"
+        autoClose={2000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover={false}
+        theme="dark"
+      />
+
+    </div>
   )
 }

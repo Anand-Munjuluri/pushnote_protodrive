@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Inder&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inder', sans-serif;
+}
+
+button, a{
+    cursor: pointer;
+}
+
+.App{
+    background-color: #e8eefe;
+    /* height:100vh;
+    width:100vw; */
+}
+
+/* Styles for desktop devices. */
+
+
+.login{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap:30px;
+    height:100vh;
+    width: 100vw;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 40%;
+}
+
+.header > img{
+    width:400px;
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width:370px;
+}
+
+.login-form > input{
+    width:100%;
+    margin-block:8px;
+    border: none;
+    border-radius: 5px;
+    height:40px;
+    font-size:15px;
+    padding-inline:12px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 0s 600000s, color 0s 600000s;
+}
+
+.login-form > p{
+    font-size: 15px;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.login-form > button{
+    width:100%;
+    height:40px;
+    color:white;
+    background-color: #4446E9;
+    border:none;
+    border-radius: 5px;
+    margin-block:12px;
+    font-size:15px;
+    text-transform: uppercase;
+}
+
+.for-mobile{
+    display: none;
+}
+
+.for-desktop{
+    margin-block:15px;
+    text-align: center;
+}
+
+.for-desktop > h1{
+    font-size:50px;
+}
+.for-desktop > p{
+    font-size:15px;
+}
+
