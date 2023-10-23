@@ -1,6 +1,9 @@
 import React from 'react'
 import VectorImage from '../Assets/home_vector.png';
 import { useNavigate } from 'react-router';
+import { toast } from 'react-toastify';
+import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
+
 
 export default function ForgotPassword() {
 
@@ -16,6 +19,22 @@ export default function ForgotPassword() {
       ...form,
       [name]: value
     })
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    if (form.email.trim() !== '') {
+      try {
+        const auth = getAuth();
+        await sendPasswordResetEmail(auth, form.email);
+        toast.success('mail was successfully sent');
+      } catch (error) {
+        console.log(error);
+        toast.error("Couldn't send reset password to given mail id");
+      }
+    } else {
+      toast.error('Enter a valid Email');
+    }
   }
 
   function handleSubmit(e) {

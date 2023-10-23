@@ -99,3 +99,16 @@ input:-webkit-autofill:focus {
     font-size:15px;
 }
 
+.form-links{
+    display: flex;
+    justify-content: space-between;
+    width: 98%;
+    margin-block:2px;
+}
+
+.form-links > p{
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: 500;
+    color:#000000;
+}
