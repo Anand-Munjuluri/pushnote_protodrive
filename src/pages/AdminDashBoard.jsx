@@ -15,7 +15,7 @@ import AddTask from '../components/AddTask'
 export default function AdminDashBoard() {
 
   const [managers, setManagers] = useState([]);
-  const [activeTab, setActiveTab] = useState('add-task');
+  const [activeTab, setActiveTab] = useState('task-board');
   const [activeManager, setActiveManager] = useState(null);
 
   useEffect(() => {

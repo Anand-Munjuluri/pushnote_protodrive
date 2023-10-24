@@ -15,6 +15,7 @@ export default function AddManager(props) {
         name: '',
         email: '',
         designation: '',
+        projectAssignedTo:'',
         tasks: []
     })
 
@@ -66,6 +67,7 @@ export default function AddManager(props) {
                 <input type="text" onChange={handleChange} placeholder= "Name" name="name" id="" />
                 <input type="email" onChange={handleChange} placeholder= "Email" name="email" id="" />
                 <input type="text" onChange={handleChange} placeholder= "Designation" name="designation" id="" />
+                <input type="text" onChange={handleChange} placeholder= "Project Assigned" name="projectAssignedTo" id="" />
                 <button onClick={handleSubmit}>Add Manager</button>
             </form>
         </>

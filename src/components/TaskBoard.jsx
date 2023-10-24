@@ -3,6 +3,7 @@ import {IoAddCircle} from 'react-icons/io5'
 import {db} from '../Firebase'
 import { collection, getDocs} from 'firebase/firestore';
 import { nanoid } from 'nanoid'
+import Loader from '../Assets/Loader.svg'
 
 export default function TaskBoard(props) {
   
@@ -51,7 +52,11 @@ export default function TaskBoard(props) {
 
         </div>}
 
-        {!managers && "Loading..."}
+        {!managers && 
+        <div className='loader-container'>
+          <img src={Loader} />
+        </div>
+        }
     </>
   )
 }

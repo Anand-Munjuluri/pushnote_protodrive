@@ -1,5 +1,4 @@
 import React from 'react'
-
 /* importing images */
 import profilePhoto from '../Assets/profile.png'
 import chat from '../Assets/chat.png'
@@ -13,10 +12,10 @@ export default function Profile() {
             <p>Landeri Srujan</p>
         </div>
 
-        <div className="functions">
-            <img src={chat} alt="" />
-            <img src={bell} alt="" />
-        </div>
+      
+
+        <img src={chat} alt="" />
+        <img src={bell} alt="" />
     </div>
   )
 }

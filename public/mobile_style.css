@@ -189,9 +189,139 @@
         flex-direction: column;
         width:90%;
         color:white;
+        margin-block:auto;
     }
 
     .add-task-form input,.add-task-form select,.add-task-form textarea{
-        margin-block:5px;
+        margin-block:10px;
+        height:35px;
+        padding-inline:10px;
+        border:none;
+        border-radius:5px;
+        resize: none;
     } 
+
+    .description-container{
+        width:100%;
+        position: relative;
+    }
+
+    .add-task-form textarea{
+        height:110px;
+        width: 100%;
+        overflow-y: auto;
+        padding-block:10px 25px;
+        position: relative;
+    }
+    
+    .char-count{
+        position: absolute;
+        font-size:13px;
+        bottom: 20px;
+        right: 8px;
+        color:black;
+
+    }
+
+    .add-task-form button{
+        height:35px;
+        background-color: #4446E9;
+        border: none;
+        color:white;
+        border-radius: 5px;
+        margin-block:10px;
+        text-transform: uppercase;
+    }
+
+    .loader-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+      }
+
+      .tasks{
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        width:100%;
+      }
+
+      .sub-task-task{
+
+        background-color: white;
+        margin-block:13px;
+        padding:10px 20px;
+        border-radius:8px;
+        width:90%;
+        margin-inline:auto;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .description-container > textarea{
+        height:110px;
+        width: 100%;
+        overflow-y: auto;
+        padding-block:10px 25px;
+        padding-inline:10px;
+        background-color: white;
+        color:black;
+        position: relative;
+      }
+
+      .sub-task{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;      
+        padding-bottom:10px;
+        padding-inline:5px;  
+        font-size:15px;
+      }
+
+      .description-container textarea{
+        border-radius: 5px;
+      }
+      .delete-icon{
+        position: absolute;
+        font-size:13px;
+        bottom: 12px;
+        right: 8px;
+        color:black;
+        cursor: pointer;
+      }
+
+      .deadline{
+        font-size:13px;
+        color:rgb(72, 71, 71);
+        margin-top:10px;
+      }
+
+      .date{
+        color:black;
+        font-weight: 700;
+      }
+
+      .task-header{
+        display: flex;
+        align-items: start;
+        width:90%;
+      }
+
+      .task-header > div{
+        display: flex;
+        gap:5px;
+        align-items: center;
+        font-size:16px;
+      }
+
+      .priority{
+        text-transform: capitalize;
+        padding-top:10px;
+      }
+
+      .status{
+        text-transform: capitalize;
+      }
 }
