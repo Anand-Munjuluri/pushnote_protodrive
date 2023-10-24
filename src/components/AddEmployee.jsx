@@ -9,7 +9,7 @@ import { db } from '../Firebase';
 import { collection, addDoc, query, where } from 'firebase/firestore';
 import { toast } from 'react-toastify';
 
-export default function AddManager(props) {
+export default function AddEmployee(props) {
 
     const [form, setForm] = React.useState({
         name: '',
@@ -20,7 +20,7 @@ export default function AddManager(props) {
         tasks: []
     })
 
-    const {managers} = props
+    const {employees} = props
 
     const handleChange = (e) => {
         setForm({...form, [e.target.name]: e.target.value})
@@ -28,40 +28,40 @@ export default function AddManager(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        addManager(form)
-        managers.push(form)
+        addEmployee(form)
+        employees.push(form)
     }
 
     const isPresent = (email) => {
-        for (let i = 0; i < managers.length; i++) {
-          if (managers[i].email === email) {
+        for (let i = 0; i < employees.length; i++) {
+          if (employees[i].email === email) {
             return true;
           }
         }
         return false;
       }
 
-    const addManager = async (managerData) => {
-        const managersRef = collection(db, 'managers');
-        if (isPresent(managerData.email)) {
-          toast.error('A manager with the same email already exists');
+    const addEmployee = async (employeeData) => {
+        const employeesRef = collection(db, 'employees');
+        if (isPresent(employeeData.email)) {
+          toast.error('A employee with the same email already exists');
           return;
         }
         
         try {
-          await addDoc(managersRef, managerData);
-          toast.success('Manager added successfully');
+          await addDoc(employeesRef, employeeData);
+          toast.success('Employee added successfully');
           
         } catch (error) {
-          toast.error('Error adding manager');
+          toast.error('Error adding employee');
         }
       };
 
     return (
-        <div>
+        <div className='task-board'>
             <div className = "header">
-            <p>Add Manager</p>
-            <IoReturnDownBackOutline onClick={() => props.changeTab("task-board")} className='add-icon'/>
+            <p>Add Employee</p>
+            <IoReturnDownBackOutline onClick={() => props.changeTab("view-tasks")} className='add-icon'/>
             </div>
 
             <form className="add-manager-form">
@@ -69,7 +69,7 @@ export default function AddManager(props) {
                 <input type="email" onChange={handleChange} placeholder= "Email" name="email" id="" />
                 <input type="text" onChange={handleChange} placeholder= "Designation" name="designation" id="" />
                 <input type="text" onChange={handleChange} placeholder= "Project Assigned" name="projectAssignedTo" id="" />
-                <button onClick={handleSubmit}>Add Manager</button>
+                <button onClick={handleSubmit}>Add Employee</button>
             </form>
         </div>
     )

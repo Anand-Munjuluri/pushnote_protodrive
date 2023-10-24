@@ -22,9 +22,11 @@ export default function Profile() {
             <p>Landeri Srujan</p>
         </div>
 
-        <img src={chat} alt="" />
-        <img src="https://cdn-icons-png.flaticon.com/512/3663/3663335.png" alt="" onClick={handleClick} />
-        <img src={bell} alt="" />
+        <div className='functions'>
+          <img src={chat} alt="" />
+          <img src="https://cdn-icons-png.flaticon.com/512/3663/3663335.png" alt="" onClick={handleClick} />
+          <img src={bell} alt="" />
+        </div>
 
         {showPlayer && (
           <div className="modal">
