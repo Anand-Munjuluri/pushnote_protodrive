@@ -1,14 +1,11 @@
 /* importing react necessary components */
 import React, { useEffect, useState } from 'react'
 
-/* importing images */
-import profilePhoto from '../Assets/profile.png'
-import chat from '../Assets/chat.png'
-import bell from '../Assets/bell.png'
-
 /* importing components */
 import TaskBoard from '../components/TaskBoard'
 import AddManager from '../components/AddManager'
+import Profile from '../components/Profile'
+import Task from '../components/Task'
 
 /* importing firebase components */
 import {db} from '../Firebase'
@@ -18,6 +15,8 @@ export default function AdminDashBoard() {
 
   const [managers, setManagers] = useState([]);
   const [activeTab, setActiveTab] = useState('task-board');
+  const [activeManager, setActiveManager] = useState(null);
+
   useEffect(() => {
     const addTaskField = async () => {
       const managersRef = collection(db, 'managers');
@@ -44,28 +43,41 @@ export default function AdminDashBoard() {
     getManagersData();
   }, []);
 
+  const handleManagerClick = (manager) => {
+    console.log(manager)
+    setActiveManager(manager);
+  };
+
   const handleTabChange = (tab) => {
     setActiveTab(tab);
-    console.log(tab);
-  }
+  };
 
   return (
     <div className='admin'>
-      <div className="profile">
-        <div className="details">
-          <img src={profilePhoto} alt="" />
-          <p>Landeri Srujan</p>
-        </div>
+        <Profile/>
 
-        <div className="functions">
-          <img src={chat} alt="" />
-          <img src={bell} alt="" />
-        </div>
-      </div>
+        <div className="task-board">
 
-      <div className="task-board">
-        {activeTab === 'task-board' && <TaskBoard changeTab = {(tab) => handleTabChange(tab)} managers={managers} />}
-        {activeTab === 'add-manager' && <AddManager changeTab = {(tab) => handleTabChange(tab)} managers={managers}/>}
+        {activeTab === 'task-board' && (
+          <TaskBoard
+            changeTab={(tab) => handleTabChange(tab)}
+            managers={managers}
+            changeManager={(manager) => handleManagerClick(manager)} // Pass the changeManager prop here
+          />
+        )}
+
+        {activeTab === 'add-manager' && 
+          <AddManager 
+          changeTab = {(tab) => handleTabChange(tab)} 
+          managers={managers}
+        />}
+
+        {activeTab === 'sub-task' && 
+          <Task 
+          manager={activeManager}
+          />
+        }
+
       </div>
 
     </div>

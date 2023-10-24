@@ -1,5 +1,5 @@
 /* importing react necessary components */
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 /* importing images */
 import VectorImage from '../Assets/home_vector.png';
@@ -12,6 +12,8 @@ import { toast } from 'react-toastify';
 
 /*importign firebase components */
 import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
+import {db} from '../Firebase'
+import { collection, getDocs } from "firebase/firestore";
 
 
 export default function ForgotPassword() {
@@ -30,9 +32,57 @@ export default function ForgotPassword() {
     })
   }
 
+  
+  const [admins, setAdmins] = useState([]);
+  const [managers, setManagers] = useState([]);
+  const [employees, setEmployees] = useState([]);
+
+  const adminsCollectionRef = collection(db, "admins")
+  const managerCollectionRef = collection(db, "managers")
+  const employeesCollectionRef = collection(db, "employees")
+
+  useEffect( () => {
+
+        // getting all the admins
+        const getAdmins = async() => {
+            const data = await getDocs(adminsCollectionRef);
+            setAdmins(data.docs.map((doc) => {
+                return {...doc.data()}
+            }))
+        }
+
+        // getting all the managers 
+        const getManagers = async() => {
+            const data = await getDocs(managerCollectionRef);
+            setManagers(data.docs.map((doc) => {
+                return {...doc.data()}
+            }))
+        }
+
+        // getting all the employees
+        const getEmployees = async() => {
+            const data = await getDocs(employeesCollectionRef);
+            setEmployees(data.docs.map((doc) => {
+                return {...doc.data()}
+            }))
+        }
+
+        getAdmins()
+        getManagers()
+        getEmployees()
+
+  },[])
+
+
   async function handleSubmit(e) {
     e.preventDefault();
-    if (form.email.trim() !== '') {
+    const email = form.email.trim()
+
+    if(!isAdmin(email) && !isManager(email) && !isEmployee(email)){
+      toast.error("No account found with given email");
+      return;
+    }
+    if (email !== '') {
       try {
         const auth = getAuth();
         await sendPasswordResetEmail(auth, form.email);
@@ -46,9 +96,34 @@ export default function ForgotPassword() {
     }
   }
 
-  function handleSubmit(e) {
-    e.preventDefault()
-    console.log(form)
+  function isAdmin(email){
+      let flag = false
+      admins.forEach((admin) => {
+          if(admin.email === email){
+              flag = true
+          }
+      })
+      return flag
+  }
+
+  function isManager(email){
+      let flag = false
+      managers.forEach((manager) => {
+          if(manager.email === email){
+              flag = true
+          }
+      })
+      return flag
+  }
+
+  function isEmployee(email){
+      let flag = false
+      employees.forEach((employee) => {
+          if(employee.email === email){
+              flag = true
+          }
+      })
+      return flag
   }
 
   return (
