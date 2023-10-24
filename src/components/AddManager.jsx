@@ -16,6 +16,7 @@ export default function AddManager(props) {
         email: '',
         designation: '',
         projectAssignedTo:'',
+        completed: 0,
         tasks: []
     })
 

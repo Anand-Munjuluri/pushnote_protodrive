@@ -132,7 +132,7 @@
     
     .add-icon{
         position: absolute;
-        top:20px;
+        top:18px;
         right:4%;
     }
 
@@ -249,10 +249,9 @@
       }
 
       .sub-task-task{
-
         background-color: white;
         margin-block:13px;
-        padding:10px 20px;
+        padding:20px 10px;
         border-radius:8px;
         width:90%;
         margin-inline:auto;
@@ -260,48 +259,51 @@
         flex-direction: column;
       }
 
-      .description-container > textarea{
+      .sub-task-task > p{
         height:110px;
         width: 100%;
         overflow-y: auto;
-        padding-block:10px 25px;
-        padding-inline:10px;
+        padding-inline:5px;
         background-color: white;
-        color:black;
-        position: relative;
+        font-size:13px;
+        text-align: justify;
+        color:rgb(61, 61, 61);
+        padding-right:15px;
       }
 
       .sub-task{
         display: flex;
+        flex-direction: column;
         justify-content: space-between;
-        align-items: center;      
+        align-items: start;      
         padding-bottom:10px;
         padding-inline:5px;  
         font-size:15px;
       }
 
-      .description-container textarea{
+      .sub-task p{
+        font-size:14px;
+        color:rgb(61, 61, 61);
+        margin-block:3px;
+    }
+
+      .sub-task p span{
+        font-size:15px;
+        color:black;
+        font-weight: 500;
+        text-transform: capitalize;
+      }
+
+      .sub-task-task p{
         border-radius: 5px;
       }
+
       .delete-icon{
-        position: absolute;
-        font-size:13px;
-        bottom: 12px;
-        right: 8px;
-        color:black;
         cursor: pointer;
-      }
-
-      .deadline{
-        font-size:13px;
-        color:rgb(72, 71, 71);
-        margin-top:10px;
-      }
-
-      .date{
-        color:black;
-        font-weight: 700;
-      }
+        margin-left:auto;
+        margin-right:10px;
+        margin-top: 20px;
+    }
 
       .task-header{
         display: flex;
@@ -316,12 +318,20 @@
         font-size:16px;
       }
 
-      .priority{
-        text-transform: capitalize;
-        padding-top:10px;
+      .desc-title{
+        padding-inline:5px;
+        margin-bottom:10px;
       }
 
-      .status{
-        text-transform: capitalize;
+      .add-task-icon{
+        position: absolute;
+        top:18px;
+        right:15%;
+      }
+
+      .add-back-icon{
+        position: absolute;
+        top:18px;
+        right:4%;
       }
 }

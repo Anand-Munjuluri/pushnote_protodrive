@@ -60,6 +60,7 @@ export default function AddTask(props) {
       return;
     }
     addTaskToManager(manager.email, taskDetails);
+    toast.success('Task added successfully');
   };
 
   return (

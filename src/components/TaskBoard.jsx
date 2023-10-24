@@ -42,7 +42,7 @@ export default function TaskBoard(props) {
               >
                 <span>{manager.name}</span>
                 <span>
-                  {manager.tasks.length === 0 ? 'No tasks' : `${manager.tasks.length}/5`}
+                  {manager.tasks.length === 0 ? 'No tasks' : `${manager.completed}/${manager.tasks.length}`}
                 </span>
               </div>
             ))
