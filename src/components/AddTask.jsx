@@ -39,7 +39,7 @@ export default function AddTask(props) {
         <IoReturnDownBackOutline onClick={() => props.changeTab('task-board')} className="add-icon" />
       </div>
 
-      <form className="add-task-form" onSubmit={handleSubmit}>
+      <div className="add-task-form">
         <label htmlFor="name">Name:</label>
         <input type="text" name="name" id="name" value={taskDetails.name} onChange={handleChange} />
 
@@ -70,7 +70,7 @@ export default function AddTask(props) {
         <input type="date" name="deadline" id="deadline" value={taskDetails.deadline} onChange={handleChange} />
 
         <button type="submit">Add Task</button>
-      </form>
+      </div>
     </>
   );
 }

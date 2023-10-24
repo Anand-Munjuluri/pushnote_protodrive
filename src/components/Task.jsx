@@ -13,10 +13,6 @@ export default function Task(props) {
           <p>Product Manager</p>
           <IoAddCircle size={35} onClick={() => props.changeTab("add-task")} className='add-icon'/>
       </div>
-
-
-
-
     </>
   )
 }

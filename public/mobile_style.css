@@ -181,4 +181,17 @@
         color:white;
         font-size:18px;
     }
+
+    /*Add Task*/
+
+    .add-task-form{
+        display: flex;
+        flex-direction: column;
+        width:90%;
+        color:white;
+    }
+
+    .add-task-form input,.add-task-form select,.add-task-form textarea{
+        margin-block:5px;
+    } 
 }
