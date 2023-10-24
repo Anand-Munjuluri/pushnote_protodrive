@@ -216,3 +216,17 @@ input:-webkit-autofill:focus {
     color:white;
     font-size:25px;
 }
+
+.task-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    color:white;
+    padding-block:10px;
+}
+
+.task-header > p{
+    font-size:19px;
+}

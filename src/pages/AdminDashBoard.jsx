@@ -10,6 +10,7 @@ import Task from '../components/Task'
 /* importing firebase components */
 import {db} from '../Firebase'
 import { collection, getDocs, updateDoc } from 'firebase/firestore';
+import AddTask from '../components/AddTask'
 
 export default function AdminDashBoard() {
 
@@ -44,7 +45,6 @@ export default function AdminDashBoard() {
   }, []);
 
   const handleManagerClick = (manager) => {
-    console.log(manager)
     setActiveManager(manager);
   };
 
@@ -75,7 +75,16 @@ export default function AdminDashBoard() {
         {activeTab === 'sub-task' && 
           <Task 
           manager={activeManager}
+          changeTab = {(tab) => handleTabChange(tab)}
           />
+        }
+
+        {activeTab === 'add-task' &&
+          <AddTask
+            changeTab={(tab) => handleTabChange(tab)}
+            manager={activeManager}
+          />
+
         }
 
       </div>
