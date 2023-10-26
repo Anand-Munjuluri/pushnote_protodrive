@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 
 /**Importing Images */
 import VectorImage from '../Assets/home_vector.png';
+import { FcGoogle } from 'react-icons/fc';
 
 /**importing Router Components */
 import { useNavigate } from 'react-router';
@@ -159,6 +160,14 @@ export default function Register() {
         
         <button onClick = {handleSubmit}>Register</button>
       </form>
+
+      <p className='or'>OR</p>
+    
+      <button className='google-signin'>
+          <FcGoogle className='google-icon' size={25}/>
+          Continue with Google
+      </button>
+
 
     </div>
   )

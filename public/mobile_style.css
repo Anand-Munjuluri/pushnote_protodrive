@@ -2,6 +2,10 @@
 
 @media only screen and (max-width: 768px) {
     
+    *{
+        padding: 0%;
+        margin: 0%;
+    }
     
     /* Login pages */
     .login{
@@ -9,7 +13,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap:30px;
+        gap:15px;
     }
 
     .header{
@@ -63,7 +67,7 @@
         background-color: #4446E9;
         border:none;
         border-radius: 5px;
-        margin-block:12px;
+        margin-top:12px;
         font-size:13px;
     }
 
@@ -79,6 +83,53 @@
 
     }
 
+    .or{
+        color:#000000;
+        font-size: 14px;
+        position: relative;
+        width:70%;
+        text-align: center;
+    }
+    
+    .or::after{
+        content: "";
+        position:absolute;
+        top:50%;
+        right:0;
+        width: 45%;
+        height: 1px;
+        background-color: #5a5959;
+    }
+    
+    .or::before{
+        content: "";
+        position:absolute;
+        top:50%;
+        left:0;
+        width: 45%;
+        height: 1px;
+        background-color: #5a5959;
+    }
+
+    .google-signin{
+        background-color: red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap:10px;
+        border:none;
+        width:70%;
+        cursor: pointer;
+        color:white;
+        padding-block:7px;
+        border-radius: 5px;
+    }
+    
+    .google-icon{
+        background-color: white;
+        border-radius: 50%;
+        padding:2px;
+    }
 
     /*Admin page*/
 
@@ -182,6 +233,8 @@
         color:white;
         font-size:18px;
     }
+
+
 
     /*Add Task*/
 

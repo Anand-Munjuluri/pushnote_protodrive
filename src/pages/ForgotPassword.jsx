@@ -15,7 +15,6 @@ import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
 import {db} from '../Firebase'
 import { collection, getDocs } from "firebase/firestore";
 
-
 export default function ForgotPassword() {
 
   const [form, setForm] = useState({

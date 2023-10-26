@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react'
 
 /* importing images */
 import VectorImage from '../Assets/home_vector.png';
+import { FcGoogle } from 'react-icons/fc';
 
 /*importing Router components */
 import { useNavigate } from 'react-router';
@@ -193,7 +194,15 @@ export default function Login() {
         </div>
         
         <button onClick = {handleSubmit}>Log In</button>
+
       </form>
+
+      <p className='or'>OR</p>
+
+      <button className='google-signin'>
+          <FcGoogle className='google-icon' size={25}/>
+          Continue with Google
+      </button>
 
     </div>
   )
