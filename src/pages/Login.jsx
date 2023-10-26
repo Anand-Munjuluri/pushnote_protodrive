@@ -11,9 +11,12 @@ import { useNavigate } from 'react-router';
 /*importign firebase components */
 import { auth } from '../Firebase';
 import {db} from '../Firebase'
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, where, query } from "firebase/firestore";
 import {
     signInWithEmailAndPassword,
+    signInWithPopup,
+    getAuth,
+    GoogleAuthProvider
 } from 'firebase/auth';
 
 /**importing Toaster */
@@ -44,7 +47,6 @@ export default function Login() {
   const employeesCollectionRef = collection(db, "employees")
 
   useEffect( () => {
-
         // getting all the admins
         const getAdmins = async() => {
             const data = await getDocs(adminsCollectionRef);
@@ -72,8 +74,44 @@ export default function Login() {
         getAdmins()
         getManagers()
         getEmployees()
-
   },[])
+
+  function printData(){
+    console.log(admins)
+  }
+
+  async function signInWithGoogle() {
+    const provider = new GoogleAuthProvider();
+    const auth = getAuth();
+  
+    signInWithPopup(auth, provider)
+      .then(async (result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        const user = result.user;
+        console.log(user.email);
+  
+        if(isAdmin(user.email)){
+            navigate('/admin-dashboard')
+            toast("Admin")
+        }
+        else if(isManager(user.email)){
+            navigate('/manager-dashboard')
+            toast("Manager")
+        }
+        else if(isEmployee(user.email)){
+            navigate('/employee-dashboard')
+            toast("Employee")
+        }
+        else{
+            toast.error('User role not assigned in organization')
+            toast("none")
+        }
+      })
+      .catch((error) => {
+        toast.error(error.message)
+      });
+  }
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -199,7 +237,7 @@ export default function Login() {
 
       <p className='or'>OR</p>
 
-      <button className='google-signin'>
+      <button onClick={signInWithGoogle} className='google-signin'>
           <FcGoogle className='google-icon' size={25}/>
           Continue with Google
       </button>

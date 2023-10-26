@@ -9,7 +9,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { useNavigate } from 'react-router';
 
 /**importing Firebase components */
-import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, signInWithPopup, updateProfile } from 'firebase/auth';
 import { auth } from '../Firebase';
 import {db} from '../Firebase'
 import { collection, getDocs } from "firebase/firestore";
@@ -72,6 +72,35 @@ export default function Register() {
         getEmployees()
 
   },[])
+
+  async function signInWithGoogle() {
+    const provider = new GoogleAuthProvider();
+    const auth = getAuth();
+  
+    signInWithPopup(auth, provider)
+      .then(async (result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        const user = result.user;
+        console.log(user);
+  
+        if(isAdmin(user.email)){
+            navigate('/admin-dashboard')
+        }
+        else if(isManager(user.email)){
+            navigate('/manager-dashboard')
+        }
+        else if(isEmployee(user.email)){
+            navigate('/employee-dashboard')
+        }
+        else{
+            toast.error('User role not assigned in organization')
+        }
+      })
+      .catch((error) => {
+        toast.error(error.message)
+      });
+  }
 
   function isAdmin(email){
         let flag = false
@@ -163,7 +192,7 @@ export default function Register() {
 
       <p className='or'>OR</p>
     
-      <button className='google-signin'>
+      <button onClick={signInWithGoogle} className='google-signin'>
           <FcGoogle className='google-icon' size={25}/>
           Continue with Google
       </button>
