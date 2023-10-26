@@ -3,6 +3,7 @@ import { nanoid } from 'nanoid';
 import { collection, query, where, getDoc, doc, getDocs } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import { IoAddCircle, IoReturnDownBackOutline } from 'react-icons/io5';
+import Loader from '../Assets/Loader.svg'
 
 export default function ManagerTasks(props) {
     const { email } = props;
@@ -49,6 +50,11 @@ export default function ManagerTasks(props) {
                     ))}
 
                     {tasks && tasks.length === 0 && <p>No tasks found</p>}
+                    {!tasks && 
+                        <div className='loader-container'>
+                            <img src={Loader} />
+                        </div>
+                    }
                 </div>
             </div>
         </>

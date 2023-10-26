@@ -58,34 +58,33 @@ export default function AdminDashBoard() {
 
         <div className="task-board">
 
-        {activeTab === 'task-board' && (
-          <TaskBoard
-            changeTab={(tab) => handleTabChange(tab)}
+          {activeTab === 'task-board' && (
+            <TaskBoard
+              changeTab={(tab) => handleTabChange(tab)}
+              managers={managers}
+              changeManager={(manager) => handleManagerClick(manager)} // Pass the changeManager prop here
+            />
+          )}
+
+          {activeTab === 'add-manager' && 
+            <AddManager 
+            changeTab = {(tab) => handleTabChange(tab)} 
             managers={managers}
-            changeManager={(manager) => handleManagerClick(manager)} // Pass the changeManager prop here
-          />
-        )}
+          />}
 
-        {activeTab === 'add-manager' && 
-          <AddManager 
-          changeTab = {(tab) => handleTabChange(tab)} 
-          managers={managers}
-        />}
-
-        {activeTab === 'sub-task' && 
-          <Task 
-          manager={activeManager}
-          changeTab = {(tab) => handleTabChange(tab)}
-          />
-        }
-
-        {activeTab === 'add-task' &&
-          <AddTask
-            changeTab={(tab) => handleTabChange(tab)}
+          {activeTab === 'sub-task' && 
+            <Task 
             manager={activeManager}
-          />
+            changeTab = {(tab) => handleTabChange(tab)}
+            />
+          }
 
-        }
+          {activeTab === 'add-task' &&
+            <AddTask
+              changeTab={(tab) => handleTabChange(tab)}
+              manager={activeManager}
+            />
+          }
 
       </div>
 

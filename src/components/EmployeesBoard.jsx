@@ -37,7 +37,7 @@ export default function EmployeesBoard(props) {
           {employees.length > 0 &&
             employees.map((employee) => (
               <div
-                onClick={() => {props.changeemployee(employee);props.changeTab("sub-task");}}
+                onClick={() => {props.changeEmployee(employee);props.changeTab("sub-task");}}
                 className="task"
                 key={nanoid()}
               >

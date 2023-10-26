@@ -10,6 +10,7 @@ import Register from './pages/Register'
 import ForgotPassword from './pages/ForgotPassword'
 import AdminDashBoard from './pages/AdminDashBoard'
 import ManagerDashBoard from './pages/ManagerDashBoard'
+import EmployeeDashBoard from './pages/EmployeeDashBoard'
 
 /*importing toaster components*/ 
 import 'react-toastify/dist/ReactToastify.css';
@@ -27,6 +28,7 @@ export default function App() {
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/admin-dashboard" element={<AdminDashBoard/>}/>
           <Route path="/manager-dashboard" element={<ManagerDashBoard/>}></Route>
+          <Route path="/employee-dashboard" element={<EmployeeDashBoard/>}></Route>
 
         </Routes>
       </BrowserRouter>

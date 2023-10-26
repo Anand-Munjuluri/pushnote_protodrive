@@ -75,7 +75,7 @@ export default function Task(props) {
 
       </div>
 
-      {tasks && tasks.length === 0 && <p className='no-tasks'>No tasks added yet</p>}
+      {tasks && tasks.length === 0 && <p className=''>No tasks added yet</p>}
       {!tasks && <p className='no-tasks'>Loading...</p>}
     </>
   )

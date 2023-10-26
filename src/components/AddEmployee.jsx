@@ -1,5 +1,5 @@
 /**Importing React Components */
-import React from 'react'
+import React, { useEffect } from 'react'
 
 /**Importing React Icons */
 import {IoReturnDownBackOutline} from 'react-icons/io5'
@@ -29,7 +29,6 @@ export default function AddEmployee(props) {
     const handleSubmit = (e) => {
         e.preventDefault()
         addEmployee(form)
-        employees.push(form)
     }
 
     const isPresent = (email) => {
@@ -61,7 +60,7 @@ export default function AddEmployee(props) {
         <div className='task-board'>
             <div className = "header">
             <p>Add Employee</p>
-            <IoReturnDownBackOutline onClick={() => props.changeTab("view-tasks")} className='add-icon'/>
+            <IoReturnDownBackOutline onClick={() => props.changeTab("view-employees")} className='add-icon'/>
             </div>
 
             <form className="add-manager-form">
@@ -69,7 +68,7 @@ export default function AddEmployee(props) {
                 <input type="email" onChange={handleChange} placeholder= "Email" name="email" id="" />
                 <input type="text" onChange={handleChange} placeholder= "Designation" name="designation" id="" />
                 <input type="text" onChange={handleChange} placeholder= "Project Assigned" name="projectAssignedTo" id="" />
-                <button onClick={handleSubmit}>Add Employee</button>
+                <button id="add-manager-button" onClick={handleSubmit}>Add Employee</button>
             </form>
         </div>
     )
