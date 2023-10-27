@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {IoAddCircle} from 'react-icons/io5'
+import {IoAddCircle, IoReturnDownBackOutline} from 'react-icons/io5'
 import {db} from '../Firebase'
 import { collection, getDocs} from 'firebase/firestore';
 import { nanoid } from 'nanoid'
@@ -31,6 +31,7 @@ export default function EmployeesBoard(props) {
         <div className = "header">
           <p>Task Board</p>
           <IoAddCircle onClick={() => props.changeTab("add-employee")} className='add-icon'/>
+          <IoReturnDownBackOutline style={{right:"14%"}} onClick={() => props.changeTab('main')} className="add-icon" />
         </div>
 
         {employees && <div className="task-board">

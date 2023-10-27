@@ -4,7 +4,7 @@ import ManagerTasks from '../components/ManagerTasks';
 import AddEmployee from '../components/AddEmployee';
 import EmployeesBoard from '../components/EmployeesBoard';
 import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../Firebase';
+import { auth, db } from '../Firebase';
 import EmployeeTask from '../components/EmployeeTask';
 import AddEmployeeTask from '../components/AddEmployeeTask';
 export default function ManagerDashBoard() {
@@ -57,7 +57,7 @@ export default function ManagerDashBoard() {
 
           {tab === 'view-tasks' &&
             <ManagerTasks
-              email={"munjulurianand@gmail.com"}
+              email={auth.currentUser.email}
               changeTab = {(tab) => changeTab(tab)}
             />
           }

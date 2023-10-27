@@ -1,4 +1,4 @@
-import { db } from '../Firebase';
+import { auth, db } from '../Firebase';
 import { nanoid } from 'nanoid';
 import { collection, query, where, getDoc, doc, getDocs } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
@@ -8,7 +8,7 @@ import { useLoaderData } from 'react-router';
 import Loader from '../Assets/Loader.svg'
 export default function EmployeeDashboard(props) {
 
-    const email = "test@gmail.com" //! CHANGE WHILE DEPLOYING
+    const email = auth.currentUser.email
     const [tasks, setTasks] = useState(null);
 
     useEffect(() => {

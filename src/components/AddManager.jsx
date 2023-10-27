@@ -51,6 +51,16 @@ export default function AddManager(props) {
         try {
           await addDoc(managersRef, managerData);
           toast.success('Manager added successfully');
+
+          // reset form
+          setForm({
+            name: '',
+            email: '',
+            designation: '',
+            projectAssignedTo:'',
+            completed: 0,
+            tasks: []
+          });
           
         } catch (error) {
           toast.error('Error adding manager');
@@ -58,7 +68,7 @@ export default function AddManager(props) {
       };
 
     return (
-        <div>
+        <>
             <div className = "header">
             <p>Add Manager</p>
             <IoReturnDownBackOutline onClick={() => props.changeTab("task-board")} className='add-icon'/>
@@ -71,6 +81,6 @@ export default function AddManager(props) {
                 <input type="text" onChange={handleChange} placeholder= "Project Assigned" name="projectAssignedTo" id="" />
                 <button onClick={handleSubmit}>Add Manager</button>
             </form>
-        </div>
+        </>
     )
 }
