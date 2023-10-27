@@ -23,6 +23,10 @@ export default function TaskBoard(props) {
     }
 
     getManagersData();
+    setTimeout(() =>{
+      console.log(managers)
+    },2000)
+    
   }, [])
 
   return (
@@ -54,7 +58,7 @@ export default function TaskBoard(props) {
 
         {!managers && 
         <div className='loader-container'>
-          <img src={Loader} />
+          <img src={Loader} alt=''/>
         </div>
         }
     </>

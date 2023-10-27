@@ -6,6 +6,7 @@ import { MdDeleteOutline } from 'react-icons/md';
 import {IoReturnDownBackOutline} from 'react-icons/io5'
 import { toast } from 'react-toastify';
 import {db} from '../Firebase'
+import Loader from '../Assets/Loader.svg'
 
 export default function Task(props) {
 
@@ -73,10 +74,15 @@ export default function Task(props) {
 
         ))}
 
+        {tasks && tasks.length === 0 && <p className='no-tasks'>No tasks found</p>}
+        {!tasks && 
+            <div className='loader-container'>
+                <img src={Loader} />
+            </div>
+        }
+
       </div>
 
-      {tasks && tasks.length === 0 && <p className=''>No tasks added yet</p>}
-      {!tasks && <p className='no-tasks'>Loading...</p>}
     </>
   )
 }

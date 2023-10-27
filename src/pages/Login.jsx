@@ -93,19 +93,16 @@ export default function Login() {
   
         if(isAdmin(user.email)){
             navigate('/admin-dashboard')
-            toast("Admin")
         }
         else if(isManager(user.email)){
             navigate('/manager-dashboard')
-            toast("Manager")
         }
         else if(isEmployee(user.email)){
             navigate('/employee-dashboard')
-            toast("Employee")
         }
         else{
             toast.error('User role not assigned in organization')
-            toast("none")
+            user.delete()
         }
       })
       .catch((error) => {

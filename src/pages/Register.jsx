@@ -95,6 +95,7 @@ export default function Register() {
         }
         else{
             toast.error('User role not assigned in organization')
+            user.delete()
         }
       })
       .catch((error) => {

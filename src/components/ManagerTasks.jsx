@@ -49,7 +49,7 @@ export default function ManagerTasks(props) {
                     </div>
                     ))}
 
-                    {tasks && tasks.length === 0 && <p>No tasks found</p>}
+                    {tasks && tasks.length === 0 && <p className='no-tasks'>No tasks found</p>}
                     {!tasks && 
                         <div className='loader-container'>
                             <img src={Loader} />
