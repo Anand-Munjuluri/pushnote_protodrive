@@ -31,10 +31,6 @@ Although PushNote is optimized for mobile devices, you can still access it on yo
 
 Now you can use PushNote on your desktop as if you were on a mobile device!
 
-Join us today at PushNote - Empowering your workflow, one task at a time.
-
-
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
