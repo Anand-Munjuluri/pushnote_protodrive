@@ -1,3 +1,40 @@
+# PushNote Documentation
+
+## Introduction
+Welcome to **PushNote**, a task management application designed specifically for small and medium-scale organizations. Built using React and optimized for mobile devices, PushNote streamlines your workflow and enhances productivity.
+
+## User Roles and Functionalities
+PushNote caters to three distinctive user roles: Admins, Managers, and Employees. Each role is equipped with specific functionalities to ensure seamless task allocation and monitoring within the organization.
+
+### Admins
+Admins are the focal point of control, responsible for overseeing the organization's cloud storage and managing task assignments. They can effortlessly add tasks, assign them to specific managers, and monitor the real-time progress of each task across the entire organization.
+
+### Managers
+Managers play a pivotal role in task distribution and supervision. They can effortlessly add employees to the system, assign tasks to their team members, and conveniently track the status of these tasks. Managers can also update the status of their own tasks, ensuring clear communication and real-time progress updates for the Admin's overview.
+
+### Employees
+Employees are the key workforce responsible for executing the assigned tasks. With easy access to their task lists, employees can efficiently update task statuses, ensuring transparent communication and streamlined progress tracking within the organization.
+
+## Authentication
+PushNote prioritizes security by implementing a robust Firebase-based authentication system. Users can seamlessly register and log in using their Google accounts, ensuring a secure and hassle-free experience.
+
+## Stress Relief Feature
+In addition to its task management capabilities, PushNote cares about the well-being of its users. We have integrated a stress relief meditation audio feature, allowing users to take a moment to relax and rejuvenate, promoting a healthier and more productive work environment.
+
+## Enabling Mobile Mode on Desktop
+Although PushNote is optimized for mobile devices, you can still access it on your desktop by enabling mobile mode in your browser's developer tools. Here's how you can do it:
+
+1. Open **Developer Tools** in your browser (usually by pressing `F12` or `Ctrl+Shift+I`).
+2. Click on the **Toggle Device Toolbar** button (or press `Ctrl+Shift+M`).
+3. Select a mobile device from the dropdown list at the top of the screen.
+4. Refresh the page.
+
+Now you can use PushNote on your desktop as if you were on a mobile device!
+
+Join us today at PushNote - Empowering your workflow, one task at a time.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
