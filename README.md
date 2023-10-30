@@ -31,7 +31,7 @@ Although PushNote is optimized for mobile devices, you can still access it on yo
 
 Now you can use PushNote on your desktop as if you were on a mobile device!
 
-Sure, here are the steps to run the React app locally:
+## Here are the steps to run the React app locally:
 
 1. **Clone the repository**: Use the command `git clone <repository-url>` to clone the PushNote repository to your local machine.
 
