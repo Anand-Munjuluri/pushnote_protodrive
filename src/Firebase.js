@@ -4,12 +4,12 @@ import { getAuth } from "firebase/auth";
 import {getFirestore} from 'firebase/firestore'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCHBKj2e1q-FXj7U0XAYEkVh-QGx5zoTZM",
-  authDomain: "pushnotes-36166.firebaseapp.com",
-  projectId: "pushnotes-36166",
-  storageBucket: "pushnotes-36166.appspot.com",
-  messagingSenderId: "960376369712",
-  appId: "1:960376369712:web:a5f85daa862d6480f8b3f5"
+  apiKey: "AIzaSyDFPyjbpX_1USHqh_T5LPDEG615yURFlc0",
+  authDomain: "alloc8now.firebaseapp.com",
+  projectId: "alloc8now",
+  storageBucket: "alloc8now.appspot.com",
+  messagingSenderId: "957937715523",
+  appId: "1:957937715523:web:a2fbf3a1fd19999a4387f6"
 };
 
 const app = initializeApp(firebaseConfig);
